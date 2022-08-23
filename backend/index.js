@@ -1,8 +1,10 @@
-const { SerialPort, ReadlineParser } = require('serialport')
-const { Server } = require('socket.io')
-
-const io = new Server({});
-
+if(process.env.TYPE !== "Production") require("dotenv").config()
+const express = require("express")
+const app = express()
+const server = require("http").createServer(app)
+const io = require("socket.io")(server, { cors: { origin: "*" }})
+const { SerialPort } = require("serialport")
+ 
 io.on("connection", (socket) => {
   console.log(socket)
 });
@@ -21,4 +23,4 @@ port.on('data', function(data){
 })
 
 
-io.listen(3000);
+server.listen(process.env.PORT, () => {console.log(`Express is listening on port ${process.env.PORT}`)})
