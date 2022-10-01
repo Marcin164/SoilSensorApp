@@ -1,0 +1,55 @@
+POST http://localhost:3001/sendData
+Content-Type: application/json
+
+{
+    "deviceId": "d324r2tte4",
+    "type": "humidity",
+    "val": 456
+}
+
+###
+
+POST http://localhost:3001/addDevice
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzNTQyYTI0MzFhMzR0Z2ZhenNhcyIsImlhdCI6MTY2NDYzODQ4MSwiZXhwIjoxNjY0NjM5MzgxfQ.wycMEH4UL2y7DHul64W0sKAQeuBmSk6z8TOQdJcjAwc
+
+{
+    "userId": "3542a2431a34tgfazsas",
+    "name": "Plant",
+    "isConnected": 0,
+    "lat": 51.4321,
+    "lng": 15.5932,
+    "soilType": "ground"
+}
+
+###
+
+GET http://localhost:3001/getDevices
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzNTQyYTI0MzFhMzR0Z2ZhenNhcyIsImlhdCI6MTY2NDY1NjA1NSwiZXhwIjoxNjY0NjU2OTU1fQ.Tdpmfh8uIeIf1fHo_mVlMUSO1QUgaEnvNzcHBr-7NS0
+
+
+###
+
+PUT http://localhost:3001/updateDevice/1664403285099
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzNTQyYTI0MzFhMzR0Z2ZhenNhcyIsImlhdCI6MTY2NDY2MTM3NywiZXhwIjoxNjY0NjYyMjc3fQ.qJBBonztRplh47U_aWDTGzi5rrDPqpBdt7m-nT6KLnA
+
+{
+    "name": "Plant [1]",
+    "lat": 56.3432,
+    "lng": 13.2421,
+    "soilType": "Another soil"
+}
+
+###
+
+DELETE http://localhost:3001/deleteDevice/1664403285099/0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzNTQyYTI0MzFhMzR0Z2ZhenNhcyIsImlhdCI6MTY2NDY2MjE5OSwiZXhwIjoxNjY0NjYzMDk5fQ.6_CIgu74AR2h6QJZqbnAMctlg8iUfA3vtIuXs-NQGVw
+
+###
+
+GET http://localhost:3001/getData/d324r2tte4/humidity
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzNTQyYTI0MzFhMzR0Z2ZhenNhcyIsImlhdCI6MTY2NDY2MjE5OSwiZXhwIjoxNjY0NjYzMDk5fQ.6_CIgu74AR2h6QJZqbnAMctlg8iUfA3vtIuXs-NQGVw

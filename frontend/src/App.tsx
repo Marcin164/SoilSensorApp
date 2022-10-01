@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Routes, Route } from "react-router-dom"
 import Dashboard from "./Pages/Dashboard/Index"
 import Login from "./Pages/Login";
@@ -6,6 +6,10 @@ import Map from "./Pages/Dashboard/Map"
 import Devices from "./Pages/Dashboard/Devices";
 
 function App() {
+  useEffect(() => {
+
+  }, [])
+  
   return (
     <Routes>
       <Route path='login' element={<Login/>}/>
