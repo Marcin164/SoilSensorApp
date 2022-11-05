@@ -1,5 +1,6 @@
 import {checkIfTokenExists, saveToDatabase} from "../models/TokenModel.js"
 import {logIn} from "../models/UserModel.js"
+import jwt from 'jsonwebtoken'
 
 export const login_post = async (req, res) => {
     try {
@@ -18,10 +19,11 @@ export const refreshToken_post = async (req, res) => {
         if(!token) throw "Invalid token"
         const isToken = await checkIfTokenExists()
         if(isToken) {
-            const payload = jwt.decode(token)
-            jwt.verify(token, process.env.REFRESH)
+            const payload = await jwt.decode(token)
+            console.log(payload)
+            await jwt.verify(token, process.env.REFRESH)
             const accessToken = jwt.sign({userId:payload.userId}, process.env.ACCESS, {expiresIn: "15m"})
-            res.send({accessToken})
+            res.send({accessToken, expires: new Date().getTime() + ( 15 * 60 * 60 )})
         }
     } catch (err) {
         res.status(401).send(err)

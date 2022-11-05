@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-import Button from '../Components/Button'
-import Input from '../Components/Input'
-import { loginService } from '../Services/auth';
+import Button from '../Components/Common/Button'
+import Input from '../Components/Common/Input'
 import { useCookies } from 'react-cookie'
+import { useDispatch } from 'react-redux';
+import { AuthActions } from '../Redux/actions/auth';
 
 type Props = {}
 
 const Login = (props: Props) => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
+  const dispatch = useDispatch()
+
   const [cookies, setCookie] = useCookies<any>(['login']);
   const [message, setMessage] = useState("")
   const [loginCredentials, setLoginCredentials] = useState<any>({
@@ -24,18 +27,9 @@ const Login = (props: Props) => {
     setLoginCredentials(loginCredentialsMutable)
   }
 
-  const submitLogin = async () => {
-    const result: any = await loginService(loginCredentials.email, loginCredentials.password)
-    if (result.ok && result.status === 200) {
-      const login: any = await result.json()
-      setMessage(login.message)
-      setCookie('AccessToken', login.tokens.accessToken, { path: '/' })
-      setCookie('RefreshToken', login.tokens.refreshToken, { path: '/' })
-      localStorage.setItem("expires", login.expires)
-      if (result.status === 200) navigate('/dashboard/devices', { replace: true })
-    } else {
-      setMessage(result.message)
-    }
+  const submitLogin = async (e: any) => {
+    e.preventDefault()
+    dispatch(AuthActions.loginStart(loginCredentials.email, loginCredentials.password))
   }
 
   return (

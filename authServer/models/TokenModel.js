@@ -15,25 +15,15 @@ export const saveToDatabase = async (refreshToken) => {
 }
 
 export const checkIfTokenExists = async (refreshToken) => {
-    const selectQuery = `SELECT token FROM tokens`
+    const query = `SELECT token FROM tokens WHERE token='${refreshToken}'`
     const token = new Promise((resolve, reject) => {
-        pool.query(selectQuery, (err, response) => {
+        pool.query(query, (err, response) => {
             if(err) reject(err)
             resolve(response)
         })
     })
 
     if(!token) throw "No valid token!"
-
-    const deleteQuery = `DELETE FROM tokens WHERE token='${refreshToken}'`
-    const result = new Promise((resolve, reject) => {
-        pool.query(deleteQuery, (err, response) => {
-            if(err) reject(err)
-            resolve(response)
-        })
-    })
-
-    if(result) throw "Cannot delete token"
 
     return true
 }

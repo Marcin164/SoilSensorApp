@@ -12,8 +12,8 @@ export const addDevice = async (req, res) => {
 
 export const deleteDevice = async (req, res) => {
     try{
-        const { id, isConnected } = req.params
-        await Device.deleteDevice(id, isConnected)
+        const { id } = req.params
+        await Device.deleteDevice(id)
         res.status(200).send('Device deleted!')
     } catch (error) {
         res.status(401).send(error)
@@ -33,29 +33,10 @@ export const updateDevice = async (req, res) => {
 
 export const getDevices = async (req, res) => {
     try{
-        const id = req.user
+        const id = req.user.userId
+        console.log(id)
         const devices = await Device.fetchDevices(id)
         res.status(200).send(devices)
-    } catch (error) {
-        res.status(401).send(error)
-    }
-}
-
-export const connectDevice = async (req, res) => {
-    try{
-        let body = req.body
-        
-        res.status(200).send('Device saved!')
-    } catch (error) {
-        res.status(401).send(error)
-    }
-}
-
-export const disconnectDevice = async (req, res) => {
-    try{
-        let body = req.body
-        
-        res.status(200).send('Device saved!')
     } catch (error) {
         res.status(401).send(error)
     }

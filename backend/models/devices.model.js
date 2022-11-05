@@ -17,9 +17,7 @@ class Device {
         return true
     }
 
-    async deleteDevice (id, isConnected) {
-        if(isConnected === 1) throw "Disconnect device"
-
+    async deleteDevice (id) {
         const query = `DELETE FROM devices WHERE id='${id}'`
         const data = await new Promise((resolve, reject) => {
             pool.query(query, (err, response) => {
@@ -28,7 +26,7 @@ class Device {
             })
         })
 
-        if(!data) throw "Cannot add device!"
+        if(!data) throw "Cannot delete device!"
     
         return true
     }

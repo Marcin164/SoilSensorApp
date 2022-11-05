@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route, Outlet } from 'react-router'
+import { Outlet } from 'react-router'
 import Topbar from '../../Components/Topbar'
 
 type Props = {}

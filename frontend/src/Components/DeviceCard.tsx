@@ -11,7 +11,7 @@ type Props = {
 
 const DeviceCard = (props: Props) => {
     return (
-        <div className="w-[250px] h-[200px] bg-[#F3F3F3] rounded-lg shadow-xl">
+        <div className="w-[250px] h-[240px] bg-[#F3F3F3] rounded-lg shadow-xl mt-4">
             <div className="w-full h-[40px] flex">
                 <div className="w-[180px] h-full pl-4 text-primary-dark font-bold text-[28px]">{props.name}</div>
                 <div className="w-[70px] h-full pr-4 flex items-center justify-around">
