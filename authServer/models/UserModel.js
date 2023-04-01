@@ -17,7 +17,7 @@ export const logIn = async (email, password) => {
 
     if(!isMatch) throw "Wrong email or password"
 
-    const accessToken = jwt.sign({userId:user[0].id}, process.env.ACCESS, {expiresIn: "15m"})
+    const accessToken = jwt.sign({userId:user[0].id}, process.env.ACCESS)
     const refreshToken = jwt.sign({userId:user[0].id}, process.env.REFRESH)
     const isActive = user.isActive
 

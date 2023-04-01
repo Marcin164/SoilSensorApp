@@ -1,9 +1,10 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include <Arduino_JSON.h>
+#include <WebSocketClient.h>
 
 int humidityPin = 25; 
-char jsonOutput[128];
+int temperaturePin = 26;
 
 void setup() {
   Serial.begin(9600);
