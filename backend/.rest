@@ -28,7 +28,6 @@ GET http://localhost:3001/getDevices
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzNTQyYTI0MzFhMzR0Z2ZhenNhcyIsImlhdCI6MTY2NDY1NjA1NSwiZXhwIjoxNjY0NjU2OTU1fQ.Tdpmfh8uIeIf1fHo_mVlMUSO1QUgaEnvNzcHBr-7NS0
 
-
 ###
 
 PUT http://localhost:3001/updateDevice/1664403285099
