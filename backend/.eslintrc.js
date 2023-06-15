@@ -1,23 +1,32 @@
 module.exports = {
-  "env": {
-    "browser": true,
-    "es2021": true,
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: 'tsconfig.json',
+    tsconfigRootDir: __dirname,
+    sourceType: 'module',
   },
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
-  "overrides": [{
-    "files": ".prettierrc",
-    "options": { "parser": "json" }
-  }],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module",
+  plugins: ['@typescript-eslint/eslint-plugin'],
+  extends: ['plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
+  root: true,
+  env: {
+    node: true,
+    jest: true,
   },
-  "plugins": ["@typescript-eslint"],
-  "rules": {
-    "semi": ["warn", "always"],
-    "quotes": ["error", "double"],
-    "indent": ["error", 2],
-    "no-multiple-empty-lines": "error",
-  }
-};
+  ignorePatterns: ['.eslintrc.js', 'dist'],
+  rules: {
+    '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    semi: ['error', 'never'],
+    quotes: ['error', 'single'],
+    indent: ['error', 2],
+    'no-multiple-empty-lines': 'error',
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
+  },
+}

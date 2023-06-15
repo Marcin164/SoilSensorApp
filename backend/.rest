@@ -1,54 +1,39 @@
-POST http://localhost:3001/sendData
+POST http://localhost:3000/users 
 Content-Type: application/json
 
 {
-    "deviceId": "d324r2tte4",
-    "type": "humidity",
-    "val": 456
+  "name": "Nicoll",
+  "email": "nixavixa@gmail.com",
+  "password": "$argon2i$v=19$m=16,t=2,p=1$MTIzNDU2Nzg$klZM5sFlE/c/TusN4HNP5w",
+  "isActive": true
 }
 
 ###
 
-POST http://localhost:3001/addDevice
+PUT http://localhost:3000/users/6456cc7838c1b5cc50fbbb65
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzNTQyYTI0MzFhMzR0Z2ZhenNhcyIsImlhdCI6MTY2NDYzODQ4MSwiZXhwIjoxNjY0NjM5MzgxfQ.wycMEH4UL2y7DHul64W0sKAQeuBmSk6z8TOQdJcjAwc
 
 {
-    "userId": "3542a2431a34tgfazsas",
-    "name": "Strawberries",
-    "isConnected": 0,
-    "lat": 52.4321,
-    "lng": 15.5934,
-    "soilType": "ground"
+  "name": "Nikolka",
+  "email": "nixavixa@gmail.com",
+  "password": "$argon2i$v=19$m=16,t=2,p=1$MTIzNDU2Nzg$klZM5sFlE/c/TusN4HNP5w",
+  "isActive": true
 }
 
 ###
 
-GET http://localhost:3001/getDevices
+POST http://localhost:3000/devices
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzNTQyYTI0MzFhMzR0Z2ZhenNhcyIsImlhdCI6MTY2NDY1NjA1NSwiZXhwIjoxNjY0NjU2OTU1fQ.Tdpmfh8uIeIf1fHo_mVlMUSO1QUgaEnvNzcHBr-7NS0
-
-###
-
-PUT http://localhost:3001/updateDevice/1664403285099
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzNTQyYTI0MzFhMzR0Z2ZhenNhcyIsImlhdCI6MTY2NDY2MTM3NywiZXhwIjoxNjY0NjYyMjc3fQ.qJBBonztRplh47U_aWDTGzi5rrDPqpBdt7m-nT6KLnA
 
 {
-    "name": "Plant [1]",
-    "lat": 56.3432,
-    "lng": 13.2421,
-    "soilType": "Another soil"
+  "userId": "6451273b02c336b5e7c51345",
+  "name": "string",
+  "plant": "string",
+  "soil": "string",
+  "city": "string",
+  "street": "string",
+  "lat": 0,
+  "lng": 0,
+  "isConnected": true,
+  "watering": ""
 }
-
-###
-
-DELETE http://localhost:3001/deleteDevice/1664403285099/0
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzNTQyYTI0MzFhMzR0Z2ZhenNhcyIsImlhdCI6MTY2NDY2MjE5OSwiZXhwIjoxNjY0NjYzMDk5fQ.6_CIgu74AR2h6QJZqbnAMctlg8iUfA3vtIuXs-NQGVw
-
-###
-
-GET http://localhost:3001/getData/d324r2tte4/humidity
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzNTQyYTI0MzFhMzR0Z2ZhenNhcyIsImlhdCI6MTY2NDY2MjE5OSwiZXhwIjoxNjY0NjYzMDk5fQ.6_CIgu74AR2h6QJZqbnAMctlg8iUfA3vtIuXs-NQGVw
