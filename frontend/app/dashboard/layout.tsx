@@ -5,6 +5,9 @@ import SideNavbar from '../_components/Navbars/SideNavbar'
 import PageHeader from '../_components/Headers/PageHeader'
 import { sidebarNavigationItems } from '../_constants/navigation'
 import { useRouter } from 'next/navigation'
+import { useQuery } from 'react-query'
+import { getAccount } from '../_services/accountService'
+import { getDevices } from '../_services/deviceService'
 
 type Props = {
   children: React.ReactNode
@@ -15,10 +18,11 @@ const DashboardLayout = ({ children }: Props) => {
   const router = useRouter()
 
   useEffect(() => {
-    if (!localStorage.getItem('accessToken')) {
-      router.push('/login')
-    }
+    !localStorage.getItem('accessToken') && router.push('/login')
   }, [])
+
+  const user = useQuery('account', getAccount)
+  useQuery('devices', getDevices)
 
   const toggleSideBar = () => {
     setSidebarOpen((prev) => !prev)
@@ -28,7 +32,7 @@ const DashboardLayout = ({ children }: Props) => {
     <div className="flex">
       <SideNavbar items={sidebarNavigationItems} opened={sidebarOpen} toggle={toggleSideBar} />
       <div className="w-full w-[calc(100%-216px)]">
-        <PageHeader toggle={toggleSideBar} />
+        <PageHeader toggle={toggleSideBar} name={user?.data?.name} surname={user?.data?.surname} />
         <main className="px-4">{children}</main>
       </div>
     </div>

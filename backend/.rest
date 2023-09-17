@@ -1,3 +1,9 @@
+GET http://localhost:3001/users/6451273b02c336b5e7c51345 
+Content-Type: application/json
+# Authorization: Bearer asdasdasd
+
+###
+
 POST http://localhost:3000/users 
 Content-Type: application/json
 

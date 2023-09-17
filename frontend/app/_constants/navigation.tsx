@@ -1,4 +1,15 @@
-import { faHouse, faMap, faTemperature0, faGear, faChartBar, faHistory, faUser } from '@fortawesome/free-solid-svg-icons'
+import {
+  faHouse,
+  faMap,
+  faTemperature0,
+  faGear,
+  faChartBar,
+  faHistory,
+  faUser,
+  faTv,
+  faInfoCircle,
+  faDroplet,
+} from '@fortawesome/free-solid-svg-icons'
 
 export const sidebarNavigationItems = [
   {
@@ -42,5 +53,33 @@ export const sidebarNavigationItems = [
     title: 'Account',
     href: '/dashboard/account',
     icon: faUser,
+  },
+]
+
+export const deviceNavigationItems = [
+  {
+    href: 'general',
+    title: 'General',
+    icon: faInfoCircle,
+  },
+  {
+    href: 'live',
+    title: 'Live',
+    icon: faTv,
+  },
+  {
+    href: 'data',
+    title: 'Data',
+    icon: faChartBar,
+  },
+  {
+    href: 'watering',
+    title: 'Watering',
+    icon: faDroplet,
+  },
+  {
+    href: 'history',
+    title: 'History',
+    icon: faHistory,
   },
 ]

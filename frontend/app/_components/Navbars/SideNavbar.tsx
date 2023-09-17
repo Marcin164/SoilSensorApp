@@ -14,6 +14,7 @@ type Props = {
 
 const SideNavbar = ({ items, opened, toggle }: Props) => {
   const pathname = usePathname()
+  const locations = pathname.split('/')
 
   return (
     <nav className={`${opened ? 'block' : 'hidden'} bg-white absolute h-screen z-10 w-screen md:w-fit md:block md:relative`}>
@@ -23,7 +24,7 @@ const SideNavbar = ({ items, opened, toggle }: Props) => {
           key={item.id}
           href={item.href}
           className={`flex items-center rounded-[10px] h-[50px] m-2 w-[200px] pl-2 ${
-            pathname === item.href ? 'text-[#FFFFFF] bg-[#6E62E5]' : 'text-[#4A4A4A] bg-[#FFFFFF]'
+            `/${locations[1]}/${locations[2]}` === item.href ? 'text-[#FFFFFF] bg-[#6E62E5]' : 'text-[#4A4A4A] bg-[#FFFFFF]'
           }`}
         >
           <FontAwesomeIcon className="w-[22px] h-[22px] mr-4 ml-2" icon={item.icon} />

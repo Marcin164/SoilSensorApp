@@ -5,7 +5,22 @@ import { Data, DataSchema } from 'src/schemas/data.schema'
 import { DataService } from 'src/services/data.service'
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: Data.name, schema: DataSchema }])],
+  imports: [
+    ClientsModule.register([
+      {
+        name: 'MATH_SERVICE',
+        transport: Transport.RMQ,
+        options: {
+          urls: ['amqp://localhost:5672'],
+          queue: 'cats_queue',
+          queueOptions: {
+            durable: false,
+          },
+        },
+      },
+    ]),
+    MongooseModule.forFeature([{ name: Data.name, schema: DataSchema }]),
+  ],
   controllers: [DataController],
   providers: [DataService],
 })

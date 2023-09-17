@@ -8,8 +8,8 @@ import { CreateDeviceDto, UpdateDeviceDto } from 'src/dto/device.dto'
 export class DevicesService {
   constructor(@InjectModel(Device.name) private deviceModel: Model<Device>) {}
 
-  async findAll(): Promise<Device[]> {
-    return this.deviceModel.find().exec()
+  async findAll(accountId: string): Promise<Device[]> {
+    return this.deviceModel.find({ userId: accountId }).exec()
   }
 
   async findById(id: string): Promise<Device> {

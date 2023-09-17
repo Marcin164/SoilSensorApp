@@ -5,8 +5,6 @@ type Props = {
 }
 
 const TableBody = ({ data }: Props) => {
-  console.log(data)
-
   return (
     <tbody>
       {data.map((datum) => (

@@ -2,21 +2,26 @@ import React from 'react'
 import Badge from '../Badges/Badge'
 import { faBottleDroplet, faDroplet, faTemperatureFull, faWifi } from '@fortawesome/free-solid-svg-icons'
 import CardInfoIcon from './CardInfoIcon'
+import Link from 'next/link'
 
-type Props = {}
+type Props = {
+  name: string
+  plant: string
+  _id: string
+}
 
-const DeviceCard = (props: Props) => {
+const DeviceCard = ({ plant, name, _id }: Props) => {
   return (
-    <div className="w-[200px] h-[220px] border border-[#727272] rounded">
-      <Badge text="Device 1" />
-      <Badge text="Avocado" />
+    <Link href={`/dashboard/devices/${_id}/general`} className="w-[200px] h-[220px] border border-[#727272] rounded-xl">
+      <Badge text={name} />
+      <Badge text={plant} />
       <div className="ml-2 rounded-full border border-[#727272] w-[30px] flex flex-col items-center pt-1 mt-10">
         <CardInfoIcon icon={faTemperatureFull} />
         <CardInfoIcon icon={faDroplet} />
         <CardInfoIcon icon={faBottleDroplet} />
         <CardInfoIcon icon={faWifi} />
       </div>
-    </div>
+    </Link>
   )
 }
 

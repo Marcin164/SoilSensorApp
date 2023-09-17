@@ -27,7 +27,7 @@ export default function Login() {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const response: any = await authenticate(data.email, data.password)
     if (response.status === 200) {
-      router.push('/dashboard/home')
+      router.push(`/dashboard/home#`)
     }
   }
 
@@ -35,7 +35,7 @@ export default function Login() {
     <div className="flex justify-center md:justify-between">
       <div className="hidden md:block md:w-1/2" />
       <div className="px-4 md:w-1/2 md:px-2">
-        <Image src="" alt="" />
+        <Image src="" alt="" /> 
         <AppHeader />
         <Header text="Welcome, please sign in" className="mt-[48px] md:mt-[70px]" />
         <form onSubmit={handleSubmit(onSubmit)}>

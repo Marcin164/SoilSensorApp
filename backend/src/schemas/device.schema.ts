@@ -4,7 +4,7 @@ import { HydratedDocument } from 'mongoose'
 export type DeviceDocument = HydratedDocument<Device>
 
 /* eslint-disable */
-@Schema()
+@Schema({ timestamps: true })
 export class Device {
   @Prop()
   id: string
