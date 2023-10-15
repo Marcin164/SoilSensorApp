@@ -12,10 +12,10 @@ type Props = {
 
 const DeviceCard = ({ plant, name, _id }: Props) => {
   return (
-    <Link href={`/dashboard/devices/${_id}/general`} className="w-[200px] h-[220px] border border-[#727272] rounded-xl">
+    <Link href={`/dashboard/devices/${_id}/general`} className="w-[200px] h-[220px] border border-mediumGray rounded-xl">
       <Badge text={name} />
       <Badge text={plant} />
-      <div className="ml-2 rounded-full border border-[#727272] w-[30px] flex flex-col items-center pt-1 mt-10">
+      <div className="ml-2 rounded-full border border-mediumGray w-[30px] flex flex-col items-center pt-1 mt-10">
         <CardInfoIcon icon={faTemperatureFull} />
         <CardInfoIcon icon={faDroplet} />
         <CardInfoIcon icon={faBottleDroplet} />

@@ -19,13 +19,13 @@ const page = () => {
         </div>
         <Header text="Events history" />
         <Table data={[]} />
-        <div className="text-[#6E62E5] text-[20px] font-medium text-center mt-2">Show full history</div>
+        <div className="text-primary text-[20px] font-medium text-center mt-2">Show full history</div>
       </div>
       <div className="xl:float-right w-[400px]">
         <Header text="Weather" />
         <div className="flex">
           <Image src="" alt="" className="w-[40px] h-[40px]" />
-          <div className="text-[24px] text-[#2B2B2B] ml-4">Wiejska, Wrocław</div>
+          <div className="text-[24px] text-darkGray ml-4">Wiejska, Wrocław</div>
         </div>
       </div>
     </div>

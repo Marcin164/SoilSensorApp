@@ -31,7 +31,7 @@ const DashboardLayout = ({ children }: Props) => {
   return (
     <div className="flex">
       <SideNavbar items={sidebarNavigationItems} opened={sidebarOpen} toggle={toggleSideBar} />
-      <div className="w-full w-[calc(100%-216px)]">
+      <div className="w-[calc(100%-216px)]">
         <PageHeader toggle={toggleSideBar} name={user?.data?.name} surname={user?.data?.surname} />
         <main className="px-4">{children}</main>
       </div>

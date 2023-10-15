@@ -8,7 +8,7 @@ type Props = {
 const InfoTile = ({ title, value }: Props) => {
   return (
     <div className="mt-2">
-      <span className="text-[#727272]">{title}: </span>
+      <span className="text-mediumGray">{title}: </span>
       <span>{value}</span>
     </div>
   )

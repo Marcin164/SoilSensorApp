@@ -38,11 +38,11 @@ const page = () => {
       </MapContainer>
       <div className="p-4 z-[500] absolute bottom-0">
         {devices.data.map((device: any) => (
-          <div className="w-[160px] h-[100px] bg-[#FFFFFF] p-2 mr-2 inline-block rounded shadow-xl">
-            <div className="font-semibold text-[20px] text-[#6E62E5]">{device.name}</div>
+          <div className="w-[160px] h-[100px] bg-white p-2 mr-2 inline-block rounded shadow-xl">
+            <div className="font-semibold text-[20px] text-primary">{device.name}</div>
             <div className="flex items-center h-fit">
               <div>
-                <FontAwesomeIcon icon={faLocationDot} className="text-[#6E62E5] text-[30px]" />
+                <FontAwesomeIcon icon={faLocationDot} className="text-primary text-[30px]" />
               </div>
               <div className="px-2">
                 <div className="text-[14px]">{device.city}</div>

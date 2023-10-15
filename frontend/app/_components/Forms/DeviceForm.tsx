@@ -35,7 +35,7 @@ const DeviceForm = ({ device, remove, save, create }: Props) => {
       <TextInput {...register('city', { required: 'City is required' })} label="City" errors={errors} />
       <TextInput {...register('street', { required: 'Street is required' })} label="Street" errors={errors} />
       <div className="flex justify-end">
-        {!create && <ButtonFilled onClick={remove} text="Delete" className="bg-[#F83A3A] w-[100px] mr-2" />}
+        {!create && <ButtonFilled onClick={remove} text="Delete" className="bg-danger w-[100px] mr-2" />}
         <ButtonFilled disabled={!isDirty} type="submit" text="Save" className="w-[100px]" />
       </div>
     </form>

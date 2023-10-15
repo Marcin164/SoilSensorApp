@@ -1,9 +1,10 @@
-"use client";
+'use client'
 
-import LineChartWrapper from "@/app/_components/Charts/LineChart";
-import Header from "@/app/_components/Headers/Header";
-import InfoTile from "@/app/_components/Others/InfoTile";
-import React from "react";
+import LineChartWrapper from '@/app/_components/Charts/LineChart'
+import Header from '@/app/_components/Headers/Header'
+import InfoTile from '@/app/_components/Others/InfoTile'
+import { socket } from '@/app/_websocket/socket'
+import React, { useEffect } from 'react'
 
 const lineData = [
   {
@@ -14,9 +15,16 @@ const lineData = [
     humidity: 466,
     time: 15,
   },
-];
+]
 
 const page = () => {
+  useEffect(() => {
+    socket.on('onMessage', (data) => {
+      console.log('messageRecieved')
+      console.log(data)
+    })
+  }, [socket])
+
   return (
     <div>
       <div className="float-left w-[calc(100%-200px)] pr-4">
@@ -28,27 +36,15 @@ const page = () => {
         </div>
         <div>
           <Header text="Humidity" />
-          <LineChartWrapper
-            data={lineData}
-            tooltip
-            xKey="time"
-            yKey="humidity"
-            height={220}
-          />
+          <LineChartWrapper data={lineData} tooltip xKey="time" yKey="humidity" height={220} />
         </div>
         <div>
           <Header text="Temperature" />
-          <LineChartWrapper
-            data={[]}
-            tooltip
-            xKey="time"
-            yKey="humidity"
-            height={220}
-          />
+          <LineChartWrapper data={[]} tooltip xKey="time" yKey="humidity" height={220} />
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default page;
+export default page

@@ -1,4 +1,5 @@
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 type Props = {
   text: string
@@ -19,7 +20,7 @@ type Props = {
 // }
 
 const Header = ({ text, className }: Props) => {
-  return <div className={`text-[#1C1C1C] text-[24px] font-bold mt-2 ${className}`}>{text}</div>
+  return <div className={twMerge('text-almostBlack text-[24px] font-bold mt-2', `${className}`)}>{text}</div>
 }
 
 export default Header

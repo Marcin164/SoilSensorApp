@@ -30,7 +30,7 @@ const layout = ({ children }: Props) => {
             key={item.href}
             href={item.href}
             className={`flex items-center rounded-[10px] h-[40px] m-2 pl-2 pr-5 ${
-              locations[4] === item.href ? 'text-[#FFFFFF] bg-[#6E62E5]' : 'text-[#4A4A4A] bg-[#FFFFFF]'
+              locations[4] === item.href ? 'text-white bg-primary' : 'text-darkGray bg-white'
             }`}
           >
             <FontAwesomeIcon className="w-[22px] h-[22px] mr-4 ml-2" icon={item.icon} />

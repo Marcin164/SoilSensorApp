@@ -7,7 +7,7 @@ type Props = {
 const TableHeader = ({ columns }: Props) => {
   return (
     <thead>
-      <tr className="text-[#727272] border-b border-[#E5E5E5]">
+      <tr className="text-mediumGray border-b border-lightGray">
         {columns.map((column: string) => (
           <th className="font-light text-left pl-2">{column}</th>
         ))}

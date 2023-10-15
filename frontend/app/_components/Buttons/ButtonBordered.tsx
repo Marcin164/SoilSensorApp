@@ -1,18 +1,30 @@
-import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { ReactNode } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 type ButtonBorderedProps = {
   type?: 'button' | 'submit' | 'reset'
-  text?: any
-  children?: any
+  text?: string
+  icon?: any
   className?: string
-  onClick?: any
+  onClick?: () => void
+  disabled?: boolean
 }
 
-const ButtonBordered = ({ type = 'button', onClick, text, children, className }: ButtonBorderedProps) => {
+const ButtonBordered = ({ type = 'button', onClick, text, icon, className, disabled = false }: ButtonBorderedProps) => {
   // change text || children to icon in props
   return (
-    <button type={type} onClick={onClick} className={`block border-[1px] border-[#6E62E5] text-[#6E62E5] rounded-[10px] h-[40px] my-2 ${className}`}>
-      {text || children}
+    <button
+      disabled={disabled}
+      type={type}
+      onClick={onClick}
+      className={twMerge(
+        'block border-[1px] border-primary text-primary rounded-[10px] h-[40px] my-2 px-2 disabled:border-lightGray disabled:text-lightGray',
+        className,
+      )}
+    >
+      {icon && <FontAwesomeIcon icon={icon} className="mr-2" />}
+      {text}
     </button>
   )
 }
