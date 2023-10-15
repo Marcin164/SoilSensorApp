@@ -9,10 +9,10 @@ import Toast from './_components/Notifications/Toast'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-  title: 'The Gardener',
-  description: 'Water and manage your plants!',
-}
+// export const metadata: Metadata = {
+//   title: 'The Gardener',
+//   description: 'Water and manage your plants!',
+// }
 
 const queryClient = new QueryClient()
 
